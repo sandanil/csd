@@ -93,5 +93,11 @@ public class JugadorController {
         webDataBinder.registerCustomEditor(Equipos.class, equipoPropertyEditor);
     }
 	
-
+	@RequestMapping(method=RequestMethod.GET, value="/detalles/{id}")
+    public String detalleJugador(Model model,@PathVariable Long id){
+        Jugador jugador = jugadorRepo.findOne(id);
+        model.addAttribute("jugador", jugador);
+        return "Jugador/detalles";
+    }
+	
 }

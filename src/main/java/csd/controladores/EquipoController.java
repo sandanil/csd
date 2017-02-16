@@ -84,4 +84,11 @@ public class EquipoController {
     public void initBinder(WebDataBinder webDataBinder){
         webDataBinder.registerCustomEditor(Federacion.class, federacionPropertyEditor);
 }
+	
+	@RequestMapping(method=RequestMethod.GET, value="/detalles/{id}")
+    public String detalleEquipo(Model model,@PathVariable Long id){
+        Equipos equipo = equipoRepo.findOne(id);
+        model.addAttribute("equipo", equipo);
+        return "Equipos/detalles";
+    }
 }

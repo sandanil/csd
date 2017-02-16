@@ -29,9 +29,9 @@
 	
 </head>
 
-<body style="background: url('	https://thumbs.dreamstime.com/z/baln-de-ftbol-con-los-ptalos-azules-abstractos-42286513.jpg">
+<body style="background: url('http://7www.ecestaticos.com/imagestatic/clipping/c79/81b/c7981b0ebc81db95f42ae6ad8d0a0f48/la-supercopa-de-espana-en-directo.jpg?mtime=1471360566');">
 
-	<h1>${titulo}</h1>
+	<h1 style="color: white;">${titulo}</h1>
 	<input type="button"
 value="jugador" name="jugador" class="btn btn-primary" onclick="self.location.href = '/csd/jugador'" />
 <input type="button"
@@ -40,22 +40,22 @@ value="equipos" name="equipos" class="btn btn-primary" onclick="self.location.hr
 	<table
 		class="table table-hover table-condensed table-striped table-bordered">
 		<thead>
-			<tr style="font-weight:bold;font-size: large;color: black;text-align: center;">
+			<tr style="font-weight:bold;font-size: large;color: yellow;text-align: center;">
 				<td style="width: 10%">#</td>
 				<td style="width: 30%">Nombre</td>
 				<td style="width: 20%">Pais</td>
-				<td style="width: 10%">detalles</td>
+				<td style="width: 10%">Simbolo</td>
 				<td style="width: 10%">Editar</td>
 				<td style="width: 10%">borrar</td>
 			</tr>
 		</thead>
 		<tbody>
 			<c:forEach items="${federaciones}" var="federacion">
-				<tr style="font-weight:bold;font-size: large;color: black;text-align: center;" data-id="${federacion.id}">
+				<tr style="background-color: black;font-weight:bold;font-size: large;color: white;text-align: center;" data-id="${federacion.id}">
 					<td>${federacion.id}</td>
-					<td>${federacion.nombre}</td>
+					<td><a href="<c:url value="/federacion/detalles/${federacion.id}" />">${federacion.nombre}</a></td>
 					<td>${federacion.pais}</td>
-					<td><button type="submit" class="btn btn-primary btn-detalle">detalles</button></td>
+					<td><img width="100" src="${federacion.imagen}"></img></td>
 					<td><button type="submit" class="btn btn-warning btn-editar">Editar</button></td>
 					<td><button type="submit" class="btn btn-danger btn-confirmar-borrar">borrar</button></td>
 				</tr>
@@ -63,7 +63,7 @@ value="equipos" name="equipos" class="btn btn-primary" onclick="self.location.hr
 		</tbody>
 		<tfoot>
 			<tr>
-				<td colspan="5">Federacion registrada: <span
+				<td colspan="5">Federaciones registradas: <span
 					id="cantidades-federacion">${federaciones.size()}</span></td>
 			</tr>
 			<tr>
@@ -97,6 +97,9 @@ value="equipos" name="equipos" class="btn btn-primary" onclick="self.location.hr
 							<label for="nombre">Pais: </label> <input id="pais"
 							name="pais" class="form-control"> 
 						
+							<label for="nombre">Imagen: </label> 
+							<input id="imagen" name="imagen" class="form-control"/>
+							
 						<input id="id" name="id" type="hidden"> 
 						
 						<input id="csrf" name="_csrf" type="hidden" value="${_csrf.token}">
@@ -104,7 +107,7 @@ value="equipos" name="equipos" class="btn btn-primary" onclick="self.location.hr
 					<div  class="modal-footer ">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
 						<button id="btn-salvar" type="submit" class="btn btn-primary">Guardar
-							informacion</button>
+							Informacion</button>
 					</div>
 				</form>
 			</div>
@@ -118,7 +121,7 @@ value="equipos" name="equipos" class="btn btn-primary" onclick="self.location.hr
 				<form id="form-confirmar-borrar" method="post">
 					<div class="modal-header">
 						
-						<h4 class="modal-title">borrando federacion</h4>
+						<h4 class="modal-title">Borrando Federacion</h4>
 					</div>
 					<div class="modal-body">
 								

@@ -48,17 +48,17 @@
 	<section id="login" class="panel panel-primary">
 
 		<c:if test='${not empty param["semacesso"]}'>
-			<div class="alert alert-warning">Usuario e/ou senha incorretos!
+			<div class="alert alert-warning">Usuario y/o contraseña incorrectos!
 			</div>
 		</c:if>
 
 		<c:if test='${not empty param["saiu"]}'>
-			<div class="alert alert-info">Você agora está fora do sistema!
+			<div class="alert alert-info">Se encuentra fuera del sistema!
 			</div>
 		</c:if>
 
 		<form action="${path}/autentificar" method="post">
-			<div class="panel-heading">seguro que quieres entrar</div>
+			<div class="panel-heading">Login de Usuario:</div>
 
 			<div class="panel-body">
 				<label for="usename"></label> <input id="username" name="username"

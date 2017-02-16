@@ -35,6 +35,10 @@ public class Equipos {
 	@NotNull
 	private Double presupuesto;
 	
+	@NotNull
+	@NotEmpty
+	private String imagen;
+	
 	@OneToMany(mappedBy = "equipo", fetch=FetchType.EAGER)
 	@JsonIgnore
 	private Set<Jugador> jugadores;
@@ -77,6 +81,14 @@ public class Equipos {
 
 	public void setPresupuesto(Double presupuesto) {
 		this.presupuesto = presupuesto;
+	}
+
+	public String getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
 	}
 
 	public Set<Jugador> getJugadores() {
@@ -125,8 +137,6 @@ public class Equipos {
 			return false;
 		return true;
 	}
-	
-	
 	
 	
 }

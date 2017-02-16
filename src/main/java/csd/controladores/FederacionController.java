@@ -73,4 +73,11 @@ public class FederacionController {
 		return federacion;
 	}
 
+	
+	@RequestMapping(method=RequestMethod.GET, value="/detalles/{id}")
+    public String detalleFederacion(Model model,@PathVariable Long id){
+        Federacion federacion = federacionRepo.findOne(id);
+        model.addAttribute("federacion", federacion);
+        return "Federacion/detalles";
+    }
 }

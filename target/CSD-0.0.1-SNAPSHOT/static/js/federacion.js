@@ -28,6 +28,7 @@ $(document).ready(function() {
 				$('#id').val(federacion.id);
 				$('#nombre').val(federacion.nombre);
 				$('#pais').val(federacion.pais);
+				$('#imagen').val(federacion.imagen);
 				$('#form-federacion .modal-title').text ("Editando....");
 				
 				$('#modal-federacion').modal('show');
@@ -55,4 +56,5 @@ var limpiarModalEditar = function(){
     $('#id').val('');
     $('#nombre').val('');
     $('#pais').val('');
+    $('#imagen').val('');
 }; 

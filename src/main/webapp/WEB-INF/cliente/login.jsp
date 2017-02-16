@@ -44,21 +44,22 @@
 }
 </style>
 </head>
-<body>
+<body style="background: url('http://7www.ecestaticos.com/imagestatic/clipping/c79/81b/c7981b0ebc81db95f42ae6ad8d0a0f48/la-supercopa-de-espana-en-directo.jpg?mtime=1471360566');">
+
 	<section id="login" class="panel panel-primary">
 
 		<c:if test='${not empty param["semacesso"]}'>
-			<div class="alert alert-warning">Usuario e/ou senha incorretos!
+			<div class="alert alert-warning">Usuario y/o contraseña incorrectos!
 			</div>
 		</c:if>
 
 		<c:if test='${not empty param["saiu"]}'>
-			<div class="alert alert-info">Você agora está fora do sistema!
+			<div class="alert alert-info">Se encuentra fuera del sistema!
 			</div>
 		</c:if>
 
 		<form action="${path}/autentificar" method="post">
-			<div class="panel-heading">seguro que quieres entrar</div>
+			<div class="panel-heading"><h3>Login de Usuario:</h3></div>
 
 			<div class="panel-body">
 				<label for="usename"></label> <input id="username" name="username"

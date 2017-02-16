@@ -30,6 +30,7 @@ $(document).ready(function() {
 				$('#edad').val(jugador.edad);
 				$('#goles').val(jugador.goles);
 				$('#equipos').val(jugador.equipos);
+				$('#imagen').val(jugador.imagen);
 				$('#form-jugador .modal-title').text ("Editando....");
 				
 				$('#modal-jugador').modal('show');
@@ -62,6 +63,7 @@ var limpiarModalEditar = function(){
     $('#edad').val('');
     $('#goles').val('');
     $('#equipos').val('');
+    $('#imagen').val('');
    
     
 };

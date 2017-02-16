@@ -32,6 +32,10 @@ public class Federacion {
 	@NotEmpty
 	private String pais;
 	
+	@NotNull
+	@NotEmpty
+	private String imagen;
+	
 	@OneToMany(mappedBy="federacion", fetch=FetchType.EAGER)
 	@JsonIgnore
 	private Set<Equipos> equipos;
@@ -41,38 +45,57 @@ public class Federacion {
     public void antesDeBorrar () {
         equipos.forEach(eq -> eq.setFederacion(null));
     }
-	
+
+
 	public Long getId() {
 		return id;
 	}
+
 
 	public void setId(Long id) {
 		this.id = id;
 	}
 
+
 	public String getNombre() {
 		return nombre;
 	}
+
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
+
 	public String getPais() {
 		return pais;
 	}
+
 
 	public void setPais(String pais) {
 		this.pais = pais;
 	}
 
+
+	public String getImagen() {
+		return imagen;
+	}
+
+
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
+	}
+
+
 	public Set<Equipos> getEquipos() {
 		return equipos;
 	}
 
+
 	public void setEquipos(Set<Equipos> equipos) {
 		this.equipos = equipos;
 	}
+
 
 	@Override
 	public int hashCode() {
@@ -82,6 +105,7 @@ public class Federacion {
 		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
 		return result;
 	}
+
 
 	@Override
 	public boolean equals(Object obj) {
@@ -104,6 +128,5 @@ public class Federacion {
 			return false;
 		return true;
 	}
-	
 
 }

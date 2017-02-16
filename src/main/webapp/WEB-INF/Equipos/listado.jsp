@@ -50,15 +50,15 @@ value="federacion" name="federacion" class="btn btn-primary" onclick="self.locat
 		</thead>
 		<tbody>
 			<c:forEach items="${equipos}" var="equipo">
-				<tr style="background-color:transparent;font-weight:bold;font-size: large;color: white;text-align: center;" data-id="${equipo.id}">
+				<tr style="background-color:black;font-weight:bold;font-size: large;color: white;text-align: center;" data-id="${equipo.id}">
 					<td>${equipo.id}</td>
-					<td>${equipo.nombre}</td>
+					<td><a href="<c:url value="/equipos/detalles/${equipo.id}" />">${equipo.nombre}</a></td>
 					<td>${equipo.estadio}</td>
 					<td>${equipo.federacion.nombre}
 					
 					</td>
 					<td>${equipo.presupuesto}</td>
-					<td><button type="submit" class="btn btn-primary btn-detalle">detalles</button></td>
+					<td><img width="100" src="${equipo.imagen}"></img></td>
 					<td><button type="submit" class="btn btn-warning btn-editar">Editar</button></td>
 					<td><button type="submit" class="btn btn-danger btn-confirmar-borrar">borrar</button></td>
 				</tr>
@@ -112,10 +112,10 @@ value="federacion" name="federacion" class="btn btn-primary" onclick="self.locat
 							<c:forEach items="${federaciones}" var="federacion">
 								<option value="${federacion.id}">${federacion.nombre}</option>
 							</c:forEach>
-						
-						
 							</select> 
 						
+							<label for="nombre">Imagen: </label> 
+							<input id="imagen" name="imagen" class="form-control"/>
 						<input id="id" name="id" type="hidden"> 
 						
 						<input id="csrf" name="_csrf" type="hidden" value="${_csrf.token}">
@@ -124,7 +124,7 @@ value="federacion" name="federacion" class="btn btn-primary" onclick="self.locat
 					
 						<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
 						<button id="btn-salvar" type="submit" class="btn btn-primary">Guardar
-							informacion</button>
+							Informacion</button>
 					</div>
 				</form>
 			</div>
@@ -137,7 +137,7 @@ value="federacion" name="federacion" class="btn btn-primary" onclick="self.locat
 				<form id="form-confirmar-borrar" method="post">
 					<div class="modal-header">
 						
-						<h4 class="modal-title">borrando equipo</h4>
+						<h4 class="modal-title">Borrando Equipo</h4>
 					</div>
 					<div class="modal-body">
 												

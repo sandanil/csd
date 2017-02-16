@@ -29,6 +29,7 @@ $(document).ready(function() {
 				$('#estadio').val(equipo.estadio);
 				$('#presupuesto').val(equipo.presupuesto);
 				$('#federaciones').val(equipo.federaciones);
+				$('#imagen').val(equipo.imagen);
 				$('#form-equipos .modal-title').text ("Editando....");
 				
 				$('#modal-equipos').modal('show');
@@ -59,6 +60,6 @@ var limpiarModalEditar = function(){
     $('#estadio').val('');
     $('#presupuesto').val('');
     $('#federaciones').val('');
-   
+    $('#imagen').val('');
     
 };

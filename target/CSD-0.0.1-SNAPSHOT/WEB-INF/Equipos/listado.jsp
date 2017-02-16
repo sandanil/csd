@@ -26,9 +26,9 @@
 	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
 	crossorigin="anonymous"></script>
 </head>
-<body style="background: url('http://cdn-small.fanbolero.com/wp/wp-content/uploads/descargas/Fanbolero_Chica2_1366x768.jpg');">
+<body style="background: url('http://7www.ecestaticos.com/imagestatic/clipping/c79/81b/c7981b0ebc81db95f42ae6ad8d0a0f48/la-supercopa-de-espana-en-directo.jpg?mtime=1471360566');">
 	
-	<h1>${titulo}</h1>
+	<h1 style="color: white;">${titulo}</h1>
 	<input type="button"
 value="jugador" name="jugador" class="btn btn-primary" onclick="self.location.href = '/csd/jugador'" />
 <input type="button"
@@ -37,28 +37,28 @@ value="federacion" name="federacion" class="btn btn-primary" onclick="self.locat
 	<table
 		class="table table-hover table-condensed table-striped "style="background-color: transparent;">
 		<thead>
-			<tr style="font-weight:bold;font-size: large;color: black;text-align: center;">
+			<tr style="font-weight:bold;font-size: large;color: yellow;text-align: center;">
 				<td style="width: 10%">#</td>
 				<td style="width: 20%">Nombre</td>
 				<td style="width: 10%">Estadio</td>
 				<td style="width: 10%">Federacion</td>
 				<td style="width: 10%">Presupuesto</td>
-				<td style="width: 10%">detalles</td>
+				<td style="width: 10%">Escudo</td>
 				<td style="width: 10%">Editar</td>
 				<td style="width: 10%">borrar</td>
 			</tr>
 		</thead>
 		<tbody>
 			<c:forEach items="${equipos}" var="equipo">
-				<tr style="background-color:transparent;font-weight:bold;font-size: large;color: black;text-align: center;" data-id="${equipo.id}">
+				<tr style="background-color:black;font-weight:bold;font-size: large;color: white;text-align: center;" data-id="${equipo.id}">
 					<td>${equipo.id}</td>
-					<td>${equipo.nombre}</td>
+					<td><a href="<c:url value="/equipos/detalles/${equipo.id}" />">${equipo.nombre}</a></td>
 					<td>${equipo.estadio}</td>
 					<td>${equipo.federacion.nombre}
 					
 					</td>
 					<td>${equipo.presupuesto}</td>
-					<td><button type="submit" class="btn btn-primary btn-detalle">detalles</button></td>
+					<td><img width="100" src="${equipo.imagen}"></img></td>
 					<td><button type="submit" class="btn btn-warning btn-editar">Editar</button></td>
 					<td><button type="submit" class="btn btn-danger btn-confirmar-borrar">borrar</button></td>
 				</tr>
@@ -112,10 +112,10 @@ value="federacion" name="federacion" class="btn btn-primary" onclick="self.locat
 							<c:forEach items="${federaciones}" var="federacion">
 								<option value="${federacion.id}">${federacion.nombre}</option>
 							</c:forEach>
-						
-						
 							</select> 
 						
+							<label for="nombre">Imagen: </label> 
+							<input id="imagen" name="imagen" class="form-control"/>
 						<input id="id" name="id" type="hidden"> 
 						
 						<input id="csrf" name="_csrf" type="hidden" value="${_csrf.token}">
@@ -124,7 +124,7 @@ value="federacion" name="federacion" class="btn btn-primary" onclick="self.locat
 					
 						<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
 						<button id="btn-salvar" type="submit" class="btn btn-primary">Guardar
-							informacion</button>
+							Informacion</button>
 					</div>
 				</form>
 			</div>
@@ -137,7 +137,7 @@ value="federacion" name="federacion" class="btn btn-primary" onclick="self.locat
 				<form id="form-confirmar-borrar" method="post">
 					<div class="modal-header">
 						
-						<h4 class="modal-title">borrando equipo</h4>
+						<h4 class="modal-title">Borrando Equipo</h4>
 					</div>
 					<div class="modal-body">
 												

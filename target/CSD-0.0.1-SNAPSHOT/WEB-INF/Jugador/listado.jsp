@@ -26,9 +26,9 @@
 	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
 	crossorigin="anonymous"></script>
 </head>
-<body style="background: url('http://www.hdfondos.eu/pictures/2015/0920/1/orig_240593.jpg');">
+<body style="background: url('http://7www.ecestaticos.com/imagestatic/clipping/c79/81b/c7981b0ebc81db95f42ae6ad8d0a0f48/la-supercopa-de-espana-en-directo.jpg?mtime=1471360566');">
 
-	<h1>${titulo}</h1>
+	<h1 style="color: white;">${titulo}</h1>
 <input type="button"
 value="federacion" name="federacion" class="btn btn-primary" onclick="self.location.href = '/csd/federacion'" />
 <input type="button"
@@ -36,37 +36,37 @@ value="equipos" name="equipos" class="btn btn-primary" onclick="self.location.hr
 	<table
 		class="table table-hover table-condensed table-striped table-bordered">
 		<thead>
-			<tr style="font-weight:bold;font-size: large;color: black;text-align: center; ">
+			<tr style="font-weight:bold;font-size: large;color: yellow;text-align: center; ">
 				<td style="width: 10%">#</td>
 				<td style="width: 30%">Nombre</td>
 				<td style="width: 20%">Edad</td>
 				<td style="width: 10%">Goles</td>
 				<td style="width: 10%">Equipo</td>
-				<td style="width: 10%">detalles</td>
+				<td style="width: 10%">Foto</td>
 				<td style="width: 10%">Editar</td>
 				<td style="width: 10%">borrar</td>
 			</tr>
 		</thead>
 		<tbody>
 			<c:forEach items="${jugadores}" var="jugador">
-				<tr style="background-color:transparent; font-weight:bold;font-size: large;color: black;text-align: center;" data-id="${jugador.id}">
+				<tr style="background-color:black; font-weight:bold;font-size: large;color: white;text-align: center;" data-id="${jugador.id}">
 					<td>${jugador.id}</td>
-					<td>${jugador.nombre}</td>
+					<td><a href="<c:url value="/jugador/detalles/${jugador.id}" />">${jugador.nombre}</a></td>
 					<td>${jugador.edad}</td>
 					<td>${jugador.goles}</td>
 					<td>
 					${jugador.equipo.nombre}
 					</td>
-					<td><button type="submit" class="btn btn-primary btn-detalle">detalles</button></td>
+					<td><img width="100" src="${jugador.imagen}"></img></td>
 					<td><button type="submit" class="btn btn-warning btn-editar">Editar</button></td>
-					<td><button type="submit" class="btn btn-danger btn-confirmar-borrar">borrar</button></td>
+					<td><button type="submit" class="btn btn-danger btn-confirmar-borrar">Borrar</button></td>
 					
 				</tr>
 			</c:forEach>
 		</tbody>
 		<tfoot>
 			<tr>
-				<td colspan="5">Jugador registrada: <span
+				<td colspan="5">Jugadores Registrados: <span
 					id="cantidades-jugador">${jugadores.size()}</span></td>
 			</tr>
 			<tr>
@@ -110,7 +110,9 @@ value="equipos" name="equipos" class="btn btn-primary" onclick="self.location.hr
 							<c:forEach items="${equipos}" var="equipo">
 								<option value="${equipo.id}">${equipo.nombre}</option>
 							</c:forEach>
-							
+							</select>
+							<label for="nombre">Imagen: </label> 
+							<input id="imagen" name="imagen" class="form-control"/>
 						
 						<input id="id" name="id" type="hidden" value=""/>
 						
@@ -119,7 +121,7 @@ value="equipos" name="equipos" class="btn btn-primary" onclick="self.location.hr
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
 						<button id="btn-salvar" type="submit" class="btn btn-primary">Guardar
-							informacion</button>
+							Informacion</button>
 					</div>
 				</form>
 			</div>
@@ -132,7 +134,7 @@ value="equipos" name="equipos" class="btn btn-primary" onclick="self.location.hr
 				<form id="form-confirmar-borrar" method="post">
 					<div class="modal-header">
 						
-						<h4 class="modal-title">borrando jugador</h4>
+						<h4 class="modal-title">Borrando Jugador</h4>
 					</div>
 					<div class="modal-body">
 												
